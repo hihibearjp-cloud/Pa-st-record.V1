@@ -24,7 +24,7 @@
 
   <title>親師聯絡&輔導手札</title>
 
-  <!-- 🥐 完美重新設計：自動生成高畫質 iOS 圖示 (開口向上、微笑迎人、普普風可頌) -->
+  <!-- 🥐 手機主畫面圖示：自動生成高畫質 iOS 圖示 (開口向上、微笑迎人、普普風可頌) -->
   <script>
     (function() {
       var svgStr = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><rect width="512" height="512" fill="#F4EDE4" /><rect x="86" y="86" width="340" height="340" rx="70" fill="#5C3A21" /><rect x="56" y="56" width="340" height="340" rx="70" fill="#FFFBF5" stroke="#5C3A21" stroke-width="24" /><circle cx="134" cy="134" r="28" fill="#5C3A21" /><circle cx="334" cy="134" r="28" fill="#5C3A21" /><circle cx="134" cy="334" r="28" fill="#5C3A21" /><circle cx="334" cy="334" r="28" fill="#5C3A21" /><circle cx="126" cy="126" r="28" fill="#FFB7B2" stroke="#5C3A21" stroke-width="12" /><circle cx="326" cy="126" r="28" fill="#B5EAD7" stroke="#5C3A21" stroke-width="12" /><circle cx="126" cy="326" r="28" fill="#FFF5BA" stroke="#5C3A21" stroke-width="12" /><circle cx="326" cy="326" r="28" fill="#C7CEEA" stroke="#5C3A21" stroke-width="12" /><g transform="translate(226, 226) scale(1.35) translate(-226, -226)"><g transform="translate(6, 6)"><path d="M 140 230 C 150 350 302 350 312 230 C 335 185 290 170 270 200 C 240 240 212 240 182 200 C 162 170 117 185 140 230 Z" fill="#5C3A21" stroke="#5C3A21" stroke-width="16" stroke-linejoin="round" /></g><path d="M 140 230 C 150 350 302 350 312 230 C 335 185 290 170 270 200 C 240 240 212 240 182 200 C 162 170 117 185 140 230 Z" fill="#FFDAC1" stroke="#5C3A21" stroke-width="16" stroke-linejoin="round" /><path d="M 190 295 Q 210 250 190 205" fill="none" stroke="#5C3A21" stroke-width="12" stroke-linecap="round" /><path d="M 262 295 Q 242 250 262 205" fill="none" stroke="#5C3A21" stroke-width="12" stroke-linecap="round" /><circle cx="206" cy="244" r="9" fill="#5C3A21" /><circle cx="246" cy="244" r="9" fill="#5C3A21" /><path d="M 216 262 Q 226 276 236 262" fill="none" stroke="#5C3A21" stroke-width="8" stroke-linecap="round" /><circle cx="188" cy="254" r="8" fill="#FFB7B2" /><circle cx="264" cy="254" r="8" fill="#FFB7B2" /></g></svg>';
@@ -636,7 +636,6 @@
         link.href = URL.createObjectURL(blob); link.download = `親師聯絡&輔導手札_${filterSeat ? `${filterSeat}號` : '總表'}_${new Date().toISOString().split('T')[0]}.csv`; link.click(); 
       };
 
-      // 🌟 核心：極致優化欄寬比例 + 修復 rowspan=2 跑版問題
       const handleExportWord = () => { 
         if (selectedForExport.length === 0) return alert('請先勾選要匯出的項目。'); 
         
@@ -657,7 +656,6 @@
                 table { width: 18.2cm; border-collapse: collapse; margin-bottom: 20px; border: 1.5px solid black; table-layout: fixed; }
                 th, td { border: 1px solid black; padding: 4px; text-align: center; font-size: 11pt; font-weight: normal; vertical-align: middle; word-break: break-all; }
                 .content-cell { text-align: left; vertical-align: top; line-height: 1.2; padding: 6px; }
-                .page-break { page-break-after: always; }
                 h2 { text-align: left; font-size: 13pt; margin-bottom: 10px; font-family: "BiauKai", "標楷體", serif; font-weight: normal; }
             </style>
         </head>
@@ -686,7 +684,7 @@
                     <th rowspan="2">年<br/>級</th>
                     <th colspan="3">日　期</th>
                     <th rowspan="2">對<br/>象</th>
-                    <th rowspan="2">輔　導　內　容　要　點</th>
+                    <th>輔　導　內　容　要　點</th>
                     <th rowspan="2">導師<br/>簽名</th>
                     <th rowspan="2">輔導<br/>室</th>
                 </tr>
@@ -737,7 +735,6 @@
         link.href = URL.createObjectURL(blob); link.download = `輔導記錄表_${new Date().toISOString().split('T')[0]}.doc`; link.click(); 
       };
 
-      // 🌟 核心：極致優化欄寬比例 + 修復 rowspan=2 跑版問題
       const handlePrintPDF = () => {
         if (selectedForExport.length === 0) return alert('請先勾選要列印/匯出的項目。'); 
         
@@ -790,7 +787,7 @@
                     <th rowspan="2">年<br/>級</th>
                     <th colspan="3">日　期</th>
                     <th rowspan="2">對<br/>象</th>
-                    <th rowspan="2">輔　導　內　容　要　點</th>
+                    <th>輔　導　內　容　要　點</th>
                     <th rowspan="2">導師<br/>簽名</th>
                     <th rowspan="2">輔導<br/>室</th>
                 </tr>
@@ -1025,8 +1022,12 @@
               
               <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-between md:justify-start">
                 <h1 className="text-2xl font-black text-[#3E2C20] tracking-widest flex items-center gap-3">
-                  <div className="w-11 h-11 bg-[#FFFBF5] border-[3px] border-[#5C3A21] rounded-xl grid grid-cols-2 gap-1 p-1 shadow-[4px_4px_0_#5C3A21] shrink-0 transition-transform hover:scale-105 overflow-hidden">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIGZpbGw9IiNGNEVERTQiIC8+PHJlY3QgeD0iODYiIHk9Ijg2IiB3aWR0aD0iMzQwIiBoZWlnaHQ9IjM0MCIgcng9IjcwIiBmaWxsPSIjNUMzQTIxIiAvPjxyZWN0IHg9IjU2IiB5PSI1NiIgd2lkdGg9IjM0MCIgaGVpZ2h0PSIzNDAiIHJ4PSI3MCIgZmlsbD0iI0ZGRkJGNSIgc3Ryb2tlPSIjNUMzQTIxIiBzdHJva2Utd2lkdGg9IjI0IiAvPjxjaXJjbGUgY3g9IjEzNCIgY3k9IjEzNCIgcj0iMjgiIGZpbGw9IiM1QzNBMjEiIC8+PGNpcmNsZSBjeD0iMzM0IiBjeT0iMTM0IiByPSIyOCIgZmlsbD0iIzVDM0EyMSIgLz4gPGNpcmNsZSBjeD0iMTM0IiBjeT0iMzM0IiByPSIyOCIgZmlsbD0iIzVDM0EyMSIgLz4gPGNpcmNsZSBjeD0iMzM0IiBjeT0iMzM0IiByPSIyOCIgZmlsbD0iIzVDM0EyMSIgLz48Y2lyY2xlIGN4PSIxMjYiIGN5PSIxMjYiIHI9IjI4IiBmaWxsPSIjRkZCN0IyIiBzdHJva2U9IiM1QzNBMjEiIHN0cm9rZS13aWR0aD0iMTIiIC8+PGNpcmNsZSBjeD0iMzI2IiBjeT0iMTI2IiByPSIyOCIgZmlsbD0iI0I1RUFENCcgc3Ryb2tlPSIjNUMzQTIxIiBzdHJva2Utd2lkdGg9IjEyIiAvPjxjaXJjbGUgY3g9IjEyNiIgY3k9IjMyNiIgcj0iMjgiIGZpbGw9IiNGRkY1QkEiIHN0cm9rZT0iIzVDM0EyMSIgc3Ryb2tlLXdpZHRoPSIxMiIgLz48Y2lyY2xlIGN4PSIzMjYiIGN5PSIzMjYiIHIPSIyOCIgZmlsbD0iI0M3Q0VFQSIgc3Ryb2tlPSIjNUMzQTIxIiBzdHJva2Utd2lkdGg9IjEyIiAvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIyNiwgMjI2KSBzY2FsZSgxLjM1KSB0cmFuc2xhdGUoLTIyNiwgLTIyNikiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYsIDYpIj48cGF0aCBkPSJNIDE0MCAyMzAgQyAxNTAgMzUwIDMwMiAzNTAgMzEyIDIzMCBDIDMzNSAxODUgMjkwIDE3MCAyNzAgMjAwIEMgMjQwIDI0MCAyMTIgMjQwIDE4MiAyMDAgQyAxNjIgMTcwIDExNyAxODUgMTQwIDIzMCBaIiBmaWxsPSIjNUMzQTIxIiBzdHJva2U9IiM1QzNBMjEiIHN0cm9rZS13aWR0aD0iMTYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+PC9nPjxwYXRoIGQ9Ik0gMTQwIDIzMCBDIDE1MCAzNTAgMzAyIDM1MCAzMTIgMjMwIEMgMzM1IDE4NSAyOTAgMTcwIDI3MCAyMDAgQyAyNDAgMjQwIDIxMiAyNDAgMTgyIDIwMCBDIDE2MiAxNzAgMTE3IDE4NSAxNDAgMjMwIFoiIGZpbGw9IiNGRkRBQzEiIHN0cm9rZT0iIzVDM0EyMSIgc3Ryb2tlLXdpZHRoPSIxNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgLz48cGF0aCBkPSJNIDE5MCAyOTUgUSAyMTAgMjUwIDE5MCAyMDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzVDM0EyMSIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiAvPjxwYXRoIGQ9Ik0gMjYyIDI5NSBRIDI0MiAyNTAgMjYyIDIwNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUMzQTIxIiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+PGNpcmNsZSBjeD0iMjA2IiBjeT0iMjQ0IiByPSI5IiBmaWxsPSIjNUMzQTIxIiAvPjxjaXJjbGUgY3g9IjI0NiIgY3k9IjI0NCIgcj0iOSIgZmlsbD0iIzVDM0EyMSIgLz48cGF0aCBkPSJNIDIxNiAyNjIgUSAyMjYgMjc2IDIzNiAyNjIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzVDM0EyMSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+PGNpcmNsZSBjeD0iMTg4IiBjeT0iMjU0IiByPSI4IiBmaWxsPSIjRkZCN0IyIiAvPjxjaXJjbGUgY3g9IjI2NCIgY3k9IjI1NCIgcj0iOCIgZmlsbD0iI0ZGQjdCMiIgLz48L2c+PC9zdmc+" alt="Logo" className="w-full h-full object-cover scale-110" />
+                  {/* 恢復網頁介面上的 4 個可愛馬卡龍圓圈 */}
+                  <div className="w-11 h-11 bg-[#FFFBF5] border-[3px] border-[#5C3A21] rounded-xl grid grid-cols-2 gap-1 p-1 shadow-[4px_4px_0_#5C3A21] shrink-0 transition-transform hover:scale-105">
+                    <div className="rounded-full bg-[#FFB7B2] border-[1.5px] border-[#5C3A21]"></div>
+                    <div className="rounded-full bg-[#B5EAD7] border-[1.5px] border-[#5C3A21]"></div>
+                    <div className="rounded-full bg-[#FFF5BA] border-[1.5px] border-[#5C3A21]"></div>
+                    <div className="rounded-full bg-[#C7CEEA] border-[1.5px] border-[#5C3A21]"></div>
                   </div>
                   親師聯絡&輔導手札
                 </h1>
@@ -1250,7 +1251,7 @@
                     </div>
                     <div className="relative">
                       <label className="block text-sm sm:text-base font-bold text-[#5C4535] mb-1.5">年級/班級</label>
-                      <select value={newLog.grade} onChange={(e) => handleGradeChange(e, false)} className="w-full bg-white border-[2.5px] border-[#5C3A21] px-2 sm:px-3 py-2.5 sm:py-3 min-h-[48px] text-[15px] sm:text-base rounded-xl font-bold shadow-[2px_2px_0_#D5C8BA] appearance-none cursor-pointer outline-none focus:border-[#FFB7B2]">
+                      <select value={newLog.grade} onChange={(e) => handleGradeChange(e, false)} className="w-full bg-white border-[2.5px] border-[#5C3A21] p-3 min-h-[56px] text-lg rounded-xl font-bold shadow-[3px_3px_0_#D5C8BA] appearance-none cursor-pointer">
                         {gradeOptions.map(g => <option key={g} value={g}>{g}</option>)}
                         <option value="custom_new_grade">+ 自訂</option>
                       </select>
